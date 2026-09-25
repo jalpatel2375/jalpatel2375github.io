@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Secret Message ❤️</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;
+ font-family:Arial,sans-serif;background:#0d0b0c;color:#fff;text-align:center;
+ overflow:hidden
+}
+.screen{width:min(92%,520px);padding:30px;display:none;animation:fade .7s ease}
+.screen.active{display:block}
+h1{font-size:34px;font-weight:500;margin:15px 0 22px}
+p{font-size:18px;line-height:1.75;color:#ddd}
+button{
+ border:1px solid #ffffff33;background:#fff;color:#171214;border-radius:30px;
+ padding:14px 28px;font-size:16px;margin-top:20px;cursor:pointer
+}
+.heart{font-size:42px;animation:beat 1.4s infinite}
+.line{height:1px;background:#ffffff22;margin:25px 0}
+.final{font-size:22px!important;color:#fff!important}
+@keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes beat{50%{transform:scale(1.12)}}
+.dots{letter-spacing:5px;color:#aaa}
+</style>
+</head>
+<body>
+
+<section id="s1" class="screen active">
+ <div class="heart">♡</div>
+ <p class="dots">• • •</p>
+ <h1>You found it.</h1>
+ <p>If you searched for this on purpose…<br>then you already know this message is for you.</p>
+ <button onclick="next(2)">Continue →</button>
+</section>
+
+<section id="s2" class="screen">
+ <div class="heart">♡</div>
+ <h1>Just 10 seconds.</h1>
+ <p>Please stay here for 10 seconds.</p>
+ <p id="timer" class="final">10</p>
+ <button id="waitBtn" style="display:none" onclick="next(3)">Okay… ❤️</button>
+</section>
+
+<section id="s3" class="screen">
+ <div class="heart">❤️</div>
+ <h1>I'm sorry.</h1>
+ <p>Not the casual "sorry" we say and forget.</p>
+ <p>You matter to me more than my ego ever should.</p>
+ <p>I don't expect you to forget everything immediately. I just wanted you to know that I genuinely regret hurting you.</p>
+ <p>Ane chokra nathi mane khbr ke atlu badhu tane hurt kru chu and ej ke thyi jay vatt vatt ma. Java de and gusso thuki de. Kale 2 exercise vadhre krje. Haal hve badhuj bol, hu shmdu chu badhujjjj.</p>
+ <p><strong>I'm sorry, truly 🤗🤗</strong></p>
+ <p>~ Jal</p>
+ <button onclick="next(4)">There is one last secret…</button>
+</section>
+
+<section id="s4" class="screen">
+ <div class="heart">♡</div>
+ <h1>One last thing.</h1>
+ <p>Before you reply… watch this. ❤️</p>
+ <video controls playsinline preload="metadata" style="width:100%;max-width:430px;border-radius:18px;margin:15px 0;box-shadow:0 10px 35px rgba(0,0,0,.25)">
+   <source src="219172.mp4" type="video/mp4">
+   Your browser does not support the video.
+ </video>
+ <p class="final">Look at your phone.</p>
+ <p>Someone is waiting for your reply. ❤️</p>
+ <div class="line"></div>
+ <p>And yes… it's me.</p>
+ <button onclick="openChat()">Text Jal ❤️</button>
+</section>
+
+<script>
+function next(n){
+ document.querySelectorAll('.screen').forEach(x=>x.classList.remove('active'));
+ document.getElementById('s'+n).classList.add('active');
+ if(n===2){
+   let t=10, el=document.getElementById('timer'), b=document.getElementById('waitBtn');
+   let i=setInterval(()=>{t--;el.textContent=t;if(t<=0){clearInterval(i);b.style.display='inline-block';}},1000);
+ }
+}
+function openChat(){
+ // Replace 919999999999 with your own WhatsApp number, country code included.
+ const number="918866574093";
+ window.location.href="https://wa.me/"+number+"?text=I%20found%20your%20secret%20message.%20❤️";
+}
+</script>
+</body>
+</html>
